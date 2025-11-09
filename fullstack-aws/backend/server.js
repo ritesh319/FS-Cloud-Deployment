@@ -6,8 +6,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const mongoURI = "mongodb+srv://admin:admin1234@cluster0.t0dxj3h.mongodb.net/?appName=Cluster0";
-
+const mongoURI = process.env.MONGO_URI;
 mongoose.connect(mongoURI)
   .then(() => console.log("✅ Connected to MongoDB Atlas"))
   .catch((err) => console.error("❌ MongoDB connection error:", err));
